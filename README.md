@@ -20,6 +20,6 @@ Implémentation de la transformée de Karhunen-Loève (KLT/KL) pour la compressi
 7. Reconstruction de l’image
 
 ## Structure
-src/        # Implémentation
-images/     # Images de test
-results/    # Images reconstruites et résultats
+* src/        # Implémentation
+* images/     # Images de test
+* results/    # Images reconstruites et résultats
