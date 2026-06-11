@@ -23,3 +23,32 @@ Implémentation de la transformée de Karhunen-Loève (KLT/KL) pour la compressi
 * src/        # Implémentation
 * images/     # Images de test
 * results/    # Images reconstruites et résultats
+
+# Guide d'installation
+
+## Prérequis
+
+* Python 3.10+
+* uv
+
+Installation de `uv` :
+```bash
+pip install uv
+```
+
+## Créer un environnement virtuel
+```bash
+uv venv
+```
+* Installer les dépendances du projet :
+```bash
+uv sync
+```
+
+## Lancer le projet
+* Placer votre image dans le dossier `img`
+* Appliquer la transformée de KL sur l'image :
+```bash
+uv run python src/transforme.py
+```
+* Visualiser le résultat dans le dossier `results`
