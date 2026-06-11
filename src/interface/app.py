@@ -37,7 +37,7 @@ img = cv2.resize(
 # Fenêtre de sélection de la taille des blocs
 size = st.selectbox(
     "Taille des blocs",
-    [8, 16]
+    [8, 16, 32]
 )
 
 @st.cache_resource
@@ -67,7 +67,7 @@ with col1:
     )
 
 with col2:
-    st.subheader(f"Image reconstruite — k={k}")
+    st.subheader(f"Image reconstruite - k={k}")
     st.image(
         image_rec,
         clamp=True

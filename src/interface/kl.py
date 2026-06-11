@@ -75,6 +75,7 @@ class KLT:
     def reconstruire(self, k):
         '''Application de la transformée inverse et reconstruction de l'image'''
 
+        # Nombre de coefficients à annuler
         nc = self.size**2 - k
 
         Y_mod = self.Y.copy()
