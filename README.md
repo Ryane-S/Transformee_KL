@@ -3,26 +3,47 @@
 Implémentation de la transformée de Karhunen-Loève (KLT/KL) pour la compression d’images en niveaux de gris.
 
 ## Objectifs
-- Partition de l’image en blocs 8×8 et 16×16
-- Calcul des matrices de covariance
-- Diagonalisation et calcul des vecteurs propres
-- Transformée KL directe et inverse
-- Compression par annulation des composantes de faible énergie
-- Reconstruction et évaluation visuelle de l’image
+
+* Partition de l’image en blocs 8×8 et 16×16
+* Calcul des matrices de covariance
+* Diagonalisation et calcul des vecteurs propres
+* Transformée KL directe et inverse
+* Compression par annulation des composantes de faible énergie
+* Reconstruction et évaluation visuelle de l’image
+* Interface interactive pour visualiser l’impact du nombre de coefficients conservés
+
+---
 
 ## Pipeline
+
 1. Découpage de l’image en blocs
 2. Vectorisation des blocs
 3. Calcul de la matrice de covariance
-4. Calcul des valeurs/vecteurs propres
+4. Calcul des valeurs et vecteurs propres
 5. Projection dans la base KL
 6. Suppression des coefficients associés aux plus petites valeurs propres
 7. Reconstruction de l’image
 
+---
+
 ## Structure
-* src/        # Implémentation
-* images/     # Images de test
-* results/    # Images reconstruites et résultats
+
+```text
+.
+├── src/
+│   ├── transforme.py      # Implémentation de la transformée KL
+│   └── interface/
+│       ├── app.py         # Interface Streamlit
+│       └── klt.py         # Pipeline KLT utilisé par l'interface
+│
+├── img/                   # Images de test
+├── results/               # Images reconstruites
+├── pyproject.toml
+├── uv.lock
+└── README.md
+```
+
+---
 
 # Guide d'installation
 
@@ -31,24 +52,45 @@ Implémentation de la transformée de Karhunen-Loève (KLT/KL) pour la compressi
 * Python 3.10+
 * uv
 
-Installation de `uv` :
+Installer `uv` :
+
 ```bash
 pip install uv
 ```
 
-## Créer un environnement virtuel
-```bash
-uv venv
-```
-* Installer les dépendances du projet :
+## Installer le projet
+
+Depuis la racine du dépôt :
+
 ```bash
 uv sync
 ```
 
-## Lancer le projet
-* Placer votre image dans le dossier `img`
-* Appliquer la transformée de KL sur l'image :
+Cette commande crée automatiquement l’environnement virtuel et installe toutes les dépendances définies dans `pyproject.toml`.
+
+---
+
+# Utilisation
+
+## Exécution classique
+
+1. Placer une image dans le dossier `img`
+2. Lancer le script :
+
 ```bash
 uv run python src/transforme.py
 ```
-* Visualiser le résultat dans le dossier `results`
+
+3. Le résultat sera sauvegardé dans `results/`
+
+---
+
+## Interface interactive
+
+L’interface permet de modifier dynamiquement le nombre de coefficients conservés (`k`) et d’observer l’impact sur l’image reconstruite.
+
+Lancer :
+
+```bash
+uv run streamlit run src/interface/app.py
+```

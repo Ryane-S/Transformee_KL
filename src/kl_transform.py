@@ -7,7 +7,7 @@ from scipy.stats import entropy
 img_path = "img/Baboon512.pgm"
 save_path = "results/" + img_path.split("/")[-1]
 size = 8
-k = 20  # nombre de coefficients gardés
+k = 1  # nombre de coefficients gardés
 
 # Chargement image et Visualisation
 img = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
