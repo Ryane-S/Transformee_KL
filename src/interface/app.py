@@ -3,7 +3,7 @@ import cv2
 
 from kl import KLT
 
-
+# Initialisation de l'interface web
 st.title("Transformée de Karhunen-Loève")
 
 img = cv2.imread(
@@ -23,6 +23,7 @@ def init():
 
 algo = init()
 
+# Ajout d'un curseur pour régler le nombre de coefficients à conserver
 k = st.slider(
     "Nombre de coefficients gardés",
     1,
@@ -30,6 +31,7 @@ k = st.slider(
     size**2
 )
 
+# Reconstruction de l'image par transformée inverse
 image_rec = (
     algo
     .reconstruire(k)

@@ -3,7 +3,6 @@ import cv2
 
 
 class KLT:
-
     def __init__(self, img, size=8):
 
         self.size = size
@@ -16,6 +15,7 @@ class KLT:
         self.transformee()
 
     def partition(self):
+        '''Partition de l'image en blocs de taille size*size'''
 
         h, w = self.img.shape
 
@@ -28,6 +28,7 @@ class KLT:
         )
 
     def vectorisation(self):
+        '''Transformation des blocs en vecteurs'''
 
         self.vecteurs = (
             self.blocks
@@ -36,6 +37,7 @@ class KLT:
         )
 
     def covariance(self):
+        '''Calcul de la matrice de covariance'''
 
         self.moyenne = np.mean(
             self.vecteurs,
@@ -53,6 +55,7 @@ class KLT:
         )
 
     def diagonalisation(self):
+        '''Diagonalisation de la matrice de covariance'''
 
         valeurs, vecteurs = (
             np.linalg.eigh(self.cov)
@@ -63,6 +66,7 @@ class KLT:
         self.FI = vecteurs[:, idx]
 
     def transformee(self):
+        '''Application de la transformée directe'''
 
         self.Y = (
             self.vecteurs_centres
@@ -70,6 +74,7 @@ class KLT:
         )
 
     def reconstruire(self, k):
+        '''Application de la transformée inverse et reconstruction de l'image'''
 
         nc = self.size**2 - k
 
