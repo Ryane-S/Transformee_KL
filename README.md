@@ -49,7 +49,7 @@ Implémentation de la transformée de Karhunen-Loève (KLT/KL) pour la compressi
 
 ## Prérequis
 
-* Python 3.10+
+* Python 3.12+
 * uv
 
 Installer `uv` :
@@ -87,7 +87,7 @@ uv run python src/transforme.py
 
 ## Interface interactive
 
-L’interface permet de modifier dynamiquement le nombre de coefficients conservés (`k`) et d’observer l’impact sur l’image reconstruite.
+L’interface permet de modifier dynamiquement le nombre de coefficients conservés (`k`) ainsi que la taille des blocs (8x8 ou 16x16) et d’observer l’impact sur l’image reconstruite.
 
 Lancer :
 
