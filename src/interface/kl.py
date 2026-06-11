@@ -2,6 +2,7 @@ import numpy as np
 
 class KLT:
     def __init__(self, img, size=8):
+        '''Constructeur'''
 
         self.size = size
         self.img = img

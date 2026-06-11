@@ -78,7 +78,7 @@ Cette commande crée automatiquement l’environnement virtuel et installe toute
 2. Lancer le script :
 
 ```bash
-uv run python src/transforme.py
+uv run python src/kl_transform.py
 ```
 
 3. Le résultat sera sauvegardé dans `results/`
